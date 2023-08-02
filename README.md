@@ -2,8 +2,8 @@
 
 # Task Management Application in Angular
 
-![Task Management Application](task-management.png)
-
+![Task Management Application](task-management.jpg)
+s
 ## Scenario
 
 You are tasked with building a task management application in Angular. The application should allow users to add tasks, mark tasks as completed, and filter tasks based on their completion status. Your task is to implement the necessary components and functionality to achieve these requirements.
