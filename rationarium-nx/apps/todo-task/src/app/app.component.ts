@@ -26,8 +26,6 @@ export class AppComponent {
 			map(() => [...(this.formGroup.get('tasks') as FormArray).controls as FormGroup[]]),
 
 			map(v => v.filter(f => this.formGroup.value.filter !== 'All' ? (this.formGroup.value.filter === 'Pending' ? f.value.status === 'Pending' : f.value.status === 'Completed') : true)),
-
-			tap(v => console.log(v)),
 		);
 	}
 
