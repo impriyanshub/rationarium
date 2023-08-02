@@ -1,0 +1,55 @@
+<mat-toolbar color="primary">
+      
+    <button (click)="snav.toggle()" mat-icon-button aria-label="Example icon-button with menu icon">
+  
+        <mat-icon svgIcon="menu"></mat-icon>
+  
+    </button>
+  
+    <span>Your Tasks</span>
+  
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+
+    <mat-sidenav mode="side" opened style="width: 300px;" #snav>
+    
+        <form [formGroup]="formGroup" fxLayout="column">
+
+            <mat-form-field appearance="outline" style="margin: 10px">
+
+                <mat-label>Filters</mat-label>
+
+                <mat-select formControlName="filter">
+
+                    <mat-option [value]="'All'">All</mat-option>
+                    
+                    <mat-option [value]="'Pending'">Pending</mat-option>
+                    
+                    <mat-option [value]="'Completed'">Completed</mat-option>
+    
+                </mat-select>
+
+            </mat-form-field>
+
+        </form>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+        <div fxLayout="column" fxLayoutGap="10px" style="width: 100%; padding: 10px;">
+
+            <div fxLayout="row" fxLayoutAlign="end end">
+
+                <button mat-stroked-button (click)="createTask()" matTooltip="Create new Task" color="primary">Add Task</button>
+
+            </div>
+
+            <rationarium-nx-task *ngFor="let taskFormGroup of filteredTasks | async" [taskFormGroup]="taskFormGroup"></rationarium-nx-task>
+
+        </div>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
